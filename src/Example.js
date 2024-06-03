@@ -37,7 +37,9 @@ setPlugins(plugin_crop, plugin_finetune, plugin_filter, plugin_annotate);
 const editorDefaults = {
   utils: ["crop", "finetune", "filter", "annotate"],
   imageReader: createDefaultImageReader(),
-  imageWriter: createDefaultImageWriter(),
+  imageWriter: createDefaultImageWriter({
+    canvasMemoryLimit: 2048 * 2048,
+  }),
   shapePreprocessor: createDefaultShapePreprocessor(),
   ...plugin_finetune_defaults,
   ...plugin_filter_defaults,
